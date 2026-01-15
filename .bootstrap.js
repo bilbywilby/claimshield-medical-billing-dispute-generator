@@ -77,7 +77,9 @@ function updateWranglerJsonc() {
 }
 
 function runSetupCommands() {
-    const commands = [];
+    const commands = [
+    "bun add react-to-print@^2.14.0"
+];
     
     if (commands.length === 0) {
         console.log('⊘ No setup commands to run');
