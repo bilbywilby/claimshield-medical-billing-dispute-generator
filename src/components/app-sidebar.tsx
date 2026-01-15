@@ -1,6 +1,6 @@
-/* This is a demo sidebar. **COMPULSORY** Edit this file to customize the sidebar OR remove it from appLayout OR don't use appLayout at all */
 import React from "react";
-import { Home, Layers, Compass, Star, Settings, LifeBuoy } from "lucide-react";
+import { LayoutDashboard, FilePlus, ShieldCheck, History, Settings } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -8,65 +8,67 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarSeparator,
-  SidebarInput,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarMenuAction,
-  SidebarMenuBadge,
 } from "@/components/ui/sidebar";
-
 export function AppSidebar(): JSX.Element {
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-2 py-1">
-          <div className="h-6 w-6 rounded-md bg-gradient-to-br from-indigo-500 to-purple-500" />
-          <span className="text-sm font-medium">Demo Sidebar</span>
+        <div className="flex items-center gap-2 px-2 py-3">
+          <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center">
+            <ShieldCheck className="text-white w-5 h-5" />
+          </div>
+          <span className="text-sm font-bold tracking-tight">ClaimShield</span>
         </div>
-        <SidebarInput placeholder="Search" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
+          <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild isActive>
-                <a href="#"><Home /> <span>Home</span></a>
+              <SidebarMenuButton 
+                onClick={() => navigate('/')} 
+                isActive={location.pathname === '/'}
+              >
+                <LayoutDashboard className="size-4" /> <span>Dashboard</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href="#"><Layers /> <span>Projects</span></a>
-              </SidebarMenuButton>
-              <SidebarMenuAction>
-                <Star className="size-4" />
-              </SidebarMenuAction>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href="#"><Compass /> <span>Explore</span></a>
+              <SidebarMenuButton 
+                onClick={() => navigate('/disputes/new')} 
+                isActive={location.pathname === '/disputes/new'}
+              >
+                <FilePlus className="size-4" /> <span>New Dispute</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
-
         <SidebarSeparator />
-
         <SidebarGroup>
-          <SidebarGroupLabel>Quick Links</SidebarGroupLabel>
+          <SidebarGroupLabel>Forensics</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href="#"><Star /> <span>Starred</span></a>
+              <SidebarMenuButton>
+                <History className="size-4" /> <span>Dispute History</span>
               </SidebarMenuButton>
-              <SidebarMenuBadge>5</SidebarMenuBadge>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton>
+                <Settings className="size-4" /> <span>Settings</span>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="px-2 text-xs text-muted-foreground">A simple shadcn sidebar</div>
+        <div className="px-3 py-4 text-[10px] text-muted-foreground uppercase font-bold tracking-widest border-t">
+          v1.0.0 Forensic Engine
+        </div>
       </SidebarFooter>
     </Sidebar>
   );
