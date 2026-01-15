@@ -3,22 +3,32 @@ export interface ApiResponse<T = unknown> {
   data?: T;
   error?: string;
 }
-
-// Minimal real-world chat example types (shared by frontend and worker)
 export interface User {
   id: string;
   name: string;
 }
-
+export interface Dispute {
+  id: string;
+  patientName: string;
+  patientHash: string; // Case reference or ID
+  statute: string;     // Legal reference (e.g., No Surprises Act)
+  cptCode: string;
+  billedAmount: number;
+  fmvAmount: number;   // Fair Market Value benchmark
+  variance: number;    // Computed: billed - fmv
+  variancePercent: number;
+  providerName: string;
+  dateOfService: string;
+  createdAt: number;
+}
 export interface Chat {
   id: string;
   title: string;
 }
-
 export interface ChatMessage {
   id: string;
   chatId: string;
   userId: string;
   text: string;
-  ts: number; // epoch millis
+  ts: number;
 }
