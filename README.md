@@ -1,6 +1,6 @@
 # Cloudflare Workers Full-Stack Chat Demo
 
-[![Deploy to Cloudflare]([cloudflarebutton])]([cloudflarebutton])
+[![Deploy to Cloudflare]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/bilbywilby/claimshield-medical-billing-dispute-generator))]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/bilbywilby/claimshield-medical-billing-dispute-generator))
 
 A production-ready full-stack chat application built on Cloudflare Workers. Features a reactive React frontend with shadcn/ui, powered by a Durable Objects backend for multi-tenant entities (Users, ChatBoards, Messages). Supports real-time CRUD operations, pagination, and seeding with mock data.
 
@@ -120,7 +120,7 @@ Pre-seeded on first request: 2 users, 1 chat board, 1 message.
    wrangler deploy --name <worker-name>
    ```
 
-[![Deploy to Cloudflare]([cloudflarebutton])]([cloudflarebutton])
+[![Deploy to Cloudflare]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/bilbywilby/claimshield-medical-billing-dispute-generator))]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/bilbywilby/claimshield-medical-billing-dispute-generator))
 
 **Live Demo APIs**:
 - `GET /api/health`
